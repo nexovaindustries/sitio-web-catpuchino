@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CATPUCHINO - Caricias y Cafés</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#f7dcde",
+                      "surface": "#fff8f6",
+                      "secondary-fixed-dim": "#aacdd0",
+                      "secondary-fixed": "#c5e9ec",
+                      "inverse-on-surface": "#ffede7",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "inverse-primary": "#dac0c2",
+                      "surface-dim": "#ffd0bc",
+                      "secondary-container": "#c5e9ec",
+                      "surface-container-low": "#fff1ec",
+                      "secondary": "#436467",
+                      "outline": "#807475",
+                      "primary": "#6d595b",
+                      "on-secondary-fixed": "#002022",
+                      "primary-container": "#fde2e4",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#26181a",
+                      "on-secondary-fixed-variant": "#2b4c4f",
+                      "on-tertiary-container": "#666868",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#e8e8e8",
+                      "surface-bright": "#fff8f6",
+                      "surface-tint": "#6d595b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-background": "#321304",
+                      "primary-fixed-dim": "#dac0c2",
+                      "surface-variant": "#ffdbcc",
+                      "surface-container-high": "#ffe2d7",
+                      "on-surface-variant": "#4e4445",
+                      "on-surface": "#321304",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "surface-container": "#ffe9e1",
+                      "inverse-surface": "#4b2716",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-secondary-container": "#496a6d",
+                      "tertiary": "#5d5f5f",
+                      "on-primary-fixed-variant": "#544244",
+                      "on-primary-container": "#776365",
+                      "background": "#fff8f6",
+                      "surface-container-highest": "#ffdbcc",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#d2c3c4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "md": "32px",
+                      "lg": "48px",
+                      "gutter": "24px",
+                      "container-padding": "24px",
+                      "xl": "64px",
+                      "sm": "16px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-10 py-3 max-w-6xl mx-auto rounded-full mt-4 mx-4 border-2 border-white/50 bg-white/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(253,226,228,0.5)]">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-black text-pink-500 drop-shadow-sm font-['Plus_Jakarta_Sans']">CATPUCHINO</span>
+</div>
+<div class="hidden md:flex items-center gap-6 font-['Plus_Jakarta_Sans'] font-bold tracking-wide">
+<a class="text-pink-600 border-b-4 border-pink-400 rounded-b-sm pb-1 hover:scale-110 transition-all duration-300 hover:bg-white/40 active:scale-90 transition-transform" href="#">Inicio</a>
+<a class="text-pink-300/80 hover:text-pink-400 hover:scale-110 transition-all duration-300 hover:bg-white/40 active:scale-90 transition-transform" href="#">Menú</a>
+<a class="text-pink-300/80 hover:text-pink-400 hover:scale-110 transition-all duration-300 hover:bg-white/40 active:scale-90 transition-transform" href="#">Mundo Miau</a>
+<a class="text-pink-300/80 hover:text-pink-400 hover:scale-110 transition-all duration-300 hover:bg-white/40 active:scale-90 transition-transform" href="#">Contacto</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex bg-pink-400 text-white font-['Plus_Jakarta_Sans'] font-bold tracking-wide px-6 py-2 rounded-full border-b-2 border-pink-600 hover:scale-110 transition-all duration-300 active:scale-90 shadow-md">
+                Pedir Ahora
+            </button>
+<button class="text-pink-400 hover:text-pink-500 hover:scale-110 transition-all duration-300 p-2 rounded-full bg-white/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-40 pb-20 px-container-padding min-h-screen flex flex-col items-center justify-center overflow-hidden bg-primary-container">
+<!-- Decorative Background Elements -->
+<div class="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+<div class="absolute top-20 left-10 text-white text-5xl opacity-50 blur-[2px] rotate-12">⭐</div>
+<div class="absolute bottom-40 right-20 text-white text-6xl opacity-40 blur-[1px] -rotate-12">☁️</div>
+<div class="absolute top-40 right-10 text-white text-4xl opacity-60">✨</div>
+<div class="absolute bottom-20 left-20 text-white text-5xl opacity-50">☁️</div>
+<div class="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
+<!-- Central Logo Area -->
+<div class="relative mb-8 group">
+<img alt="CATPUCHINO Logo" class="w-64 h-64 object-contain drop-shadow-[0_20px_40px_rgba(253,226,228,0.8)] transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, kawaii-style illustration of the CATPUCHINO logo. The logo features a cute, round-faced cartoon cat peeking out of an oversized coffee mug. The style is joyful, colorful, and non-minimalist, drawing from Harajuku candy aesthetics. The background is transparent. The colors are soft pastel pinks, baby blues, warm coffee browns, and buttery yellows. The lighting feels magical and soft, with a subtle glow around the elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzEFheCOjplNRohTzImE-uU__Db-ipm4QZaPKoEsxsem3oJVYCMAKeBADtYRZGi8KTlz0KihP48qurV744xpnBxTX9i8_JDb89oG2xQol_1aguF7--KtBT7GhEfr8GaIoxIWpun9FaS9Boy-28iakFiFfGWUv420NLHd9-Vp9bmS1G9D0TcA7FzO6n1GYQL_gCZ6QehAVwn1Vkx-0Zb5Hr_8_G_rxDAq8d5Vi8-5I2ycNj9no4DCcrKGmn-bnKFxEAmXlSScKjLqWz"/>
+<!-- Floating Cats -->
+<img alt="Cat drinking cappuccino" class="absolute -top-10 -left-20 w-32 h-32 object-contain drop-shadow-lg opacity-90 animate-[bounce_3s_ease-in-out_infinite]" data-alt="A cute, chubby cartoon cat happily sipping from a large cappuccino mug with visible, stylized steam rising from it. The cat is rendered in a vibrant, high-quality kawaii illustration style, with soft shading and a joyful expression. The color palette features pastel pinks, soft blues, and warm browns, perfectly matching a magical cat cafe aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI5rcr9UxurmvotUAZemXmt1P-NkyHaPv9H7meAt-XUG6nTmxmCRyt-qa5asx3-iV3L3qCsiDCeM8f5en1CU2h1N_Cc0xwc2yiampCo67-5EZh0iec1E7AEGlYU8hUKi0sIab_0hpftIf9i1UhzsaIylqFo0g5Ml4ufzDbPtE32T1UIu3MyISBIRt7NhYwzjJZxs9dtfFT_HqQpOqtmAZ982NRYgX04f6LlyLASZsLzevRUMUPmUd7y1iAZ_iH7QHdwqMRIUaRIPCZ"/>
+<img alt="Cat with yarn" class="absolute -bottom-10 -right-20 w-32 h-32 object-contain drop-shadow-lg opacity-90 animate-[bounce_4s_ease-in-out_infinite_reverse]" data-alt="An adorable, fluffy cartoon cat playfully tangled in a bright ball of yarn. The illustration is highly detailed and kawaii, avoiding any corporate minimalism. The colors are bright pastels, blending soft pinks, baby blues, and cheerful yellows. The lighting is warm and inviting, suggesting a cozy, magical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr7qAZBltd1MqMDu0MADNtNTEyzK3U4Lz26bq3EKBSPX4zq8eHWPfeplmAyqhGH-9kBnDTIYx58kZ5x-ga7vos2k8pnDybRoqCzx72m3bdWaPuCMVoBKe82MJr42vxsTvt5_D-vMqn-1KFOYpbHP1nrI9v1lArDweIYiRwk5AbAmhVkx96sbplhls2G8W0LdrPJXJqR8IiR-tYd9RSbeSvwQN4H1kwFpyASw4VZads-RUixy3im0Xr1Rym6xjTbuXWTcpca9ObnDec"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-6 drop-shadow-md">
+                Bienvenido a <span class="text-surface-tint">CATPUCHINO</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed">
+                Donde los gatos, el café y la buena comida crean momentos inolvidables. Sumérgete en un mundo de dulzura y ronroneos.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-surface-tint text-white font-label-sm text-label-sm px-8 py-4 rounded-full border-b-4 border-inverse-surface shadow-[0_10px_30px_rgba(109,89,91,0.3)] hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">menu_book</span>
+                    Ver Menú
+                </button>
+<button class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-8 py-4 rounded-full border-b-4 border-secondary shadow-[0_10px_30px_rgba(197,233,236,0.5)] hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">event_seat</span>
+                    Reservar Mesa
+                </button>
+</div>
+</div>
+</header>
+<!-- Story Section -->
+<section class="py-20 px-container-padding bg-surface relative overflow-hidden">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 relative">
+<div class="absolute inset-0 bg-primary-container rounded-[3rem] rotate-3 opacity-50"></div>
+<img alt="Cat sleeping on burger" class="relative z-10 w-full max-w-md mx-auto object-contain rounded-[3rem] shadow-[0_20px_50px_rgba(253,226,228,0.6)] border-4 border-white" data-alt="A highly detailed, adorable kawaii illustration of a plump, sleepy cat resting peacefully on top of a giant, stylized hamburger. The art style is colorful, magical, and tactile, resembling soft candy glass and plush textures. The color palette includes pastel pinks, soft blues, warm browns, and bright yellows. The background should be transparent or soft pastel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvyJhXTMlcayue7a9fECQN0vdxOwNkf4xdTwHUHd3UOzzgCMW6OUAHIftnEGBJBjIS9kOrCPLJYBe3PlHgROh71s1jA_2Ei2l9BRZe5hIDD5DdJY2fFwBnyeZixYg0ivfOFnlHDPAqN_HaAqcBGDXWO2BdBJVmZNtm0NQV9NAgIWsJwljBmII_ptl5oj592Bnn2Q5Z-QjZdM4YR7839QCVoNG2mw8XizqwPqNgTDbF1FzixN3nHzz4kCFLrkUvUU8wepmRAW_O33u0"/>
+</div>
+<div class="flex-1 space-y-6">
+<div class="inline-flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-2 rounded-full font-label-sm text-label-sm border-2 border-white shadow-sm">
+<span class="material-symbols-outlined text-sm">pets</span>
+                    Nuestra Historia
+                </div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Un Cuento de Gatos y Café</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Érase una vez, en un rincón mágico de la ciudad, un lugar donde el aroma a café recién tostado se mezclaba con el suave sonido de los ronroneos. CATPUCHINO nació del sueño de crear un refugio acogedor donde humanos y felinos pudieran compartir momentos de paz y alegría.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Nuestros adorables anfitriones felinos te esperan para hacer de tu visita una experiencia verdaderamente inolvidable, llena de caricias, juegos y los postres más deliciosos.
+                </p>
+</div>
+</div>
+</section>
+<!-- Menu Preview Section -->
+<section class="py-20 px-container-padding bg-surface-container-low relative">
+<div class="absolute right-0 top-10 opacity-20">
+<span class="material-symbols-outlined text-9xl text-primary">cruelty_free</span>
+</div>
+<div class="max-w-6xl mx-auto text-center mb-16 relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Delicias del Menú</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+                Preparado con amor y un toque de magia.
+            </p>
+</div>
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-6 border-2 border-primary-container shadow-[0_15px_40px_rgba(253,226,228,0.4)] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(253,226,228,0.6)] transition-all duration-300 group">
+<div class="w-20 h-20 mx-auto bg-primary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-surface-tint">coffee</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-center text-on-surface mb-2 text-xl">Cafés Mágicos</h3>
+<p class="font-body-md text-body-md text-center text-on-surface-variant text-sm">Nuestros famosos lattes con arte latte en forma de gatito.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-6 border-2 border-secondary-container shadow-[0_15px_40px_rgba(197,233,236,0.4)] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(197,233,236,0.6)] transition-all duration-300 group">
+<div class="w-20 h-20 mx-auto bg-secondary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-secondary">cake</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-center text-on-surface mb-2 text-xl">Postres Kawaii</h3>
+<p class="font-body-md text-body-md text-center text-on-surface-variant text-sm">Pasteles suaves y dulces diseñados para enamorar.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-6 border-2 border-surface-variant shadow-[0_15px_40px_rgba(255,219,204,0.4)] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,219,204,0.6)] transition-all duration-300 group">
+<div class="w-20 h-20 mx-auto bg-surface-variant rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-on-background">fastfood</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-center text-on-surface mb-2 text-xl">Hamburguesas</h3>
+<p class="font-body-md text-body-md text-center text-on-surface-variant text-sm">Sabrosas opciones saladas para acompañar tu visita.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-6 border-2 border-primary-container shadow-[0_15px_40px_rgba(253,226,228,0.4)] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(253,226,228,0.6)] transition-all duration-300 group">
+<div class="w-20 h-20 mx-auto bg-primary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-surface-tint">icecream</span>
+</div>
+<h3 class="font-label-sm text-label-sm text-center text-on-surface mb-2 text-xl">Bebidas Frías</h3>
+<p class="font-body-md text-body-md text-center text-on-surface-variant text-sm">Frappés y tés helados refrescantes y coloridos.</p>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="bg-surface text-surface-tint font-label-sm text-label-sm px-8 py-4 rounded-full border-2 border-surface-tint shadow-[0_10px_30px_rgba(109,89,91,0.1)] hover:bg-primary-container hover:border-primary-container transition-all duration-300 active:scale-95 inline-flex items-center gap-2">
+                Ver Menú Completo
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Reservation Section -->
+<section class="py-20 px-container-padding bg-surface-bright relative">
+<div class="absolute left-0 bottom-10 opacity-20">
+<span class="material-symbols-outlined text-9xl text-secondary">favorite</span>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="bg-white/90 backdrop-blur-2xl rounded-[3rem] p-10 md:p-16 shadow-[0_30px_60px_rgba(253,226,228,0.5)] border-4 border-primary-container relative">
+<!-- Decorative Ears -->
+<div class="absolute -top-6 left-16 w-12 h-12 bg-white border-t-4 border-l-4 border-primary-container rounded-tl-full transform rotate-45 z-0"></div>
+<div class="absolute -top-6 right-16 w-12 h-12 bg-white border-t-4 border-r-4 border-primary-container rounded-tr-full transform -rotate-45 z-0"></div>
+<div class="relative z-10 text-center mb-10">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Reserva tu Espacio</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Asegura tu momento especial con nuestros gatitos.</p>
+</div>
+<form class="space-y-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface ml-4">Nombre</label>
+<input class="w-full bg-white border-2 border-outline/30 rounded-full px-6 py-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-4 focus:ring-secondary/20 transition-all placeholder:text-on-surface-variant/50" placeholder="Tu nombre" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface ml-4">Personas</label>
+<select class="w-full bg-white border-2 border-outline/30 rounded-full px-6 py-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-4 focus:ring-secondary/20 transition-all appearance-none">
+<option>2 Personas</option>
+<option>3 Personas</option>
+<option>4 Personas</option>
+<option>5+ Personas</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface ml-4">Fecha</label>
+<input class="w-full bg-white border-2 border-outline/30 rounded-full px-6 py-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-4 focus:ring-secondary/20 transition-all" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface ml-4">Hora</label>
+<input class="w-full bg-white border-2 border-outline/30 rounded-full px-6 py-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-4 focus:ring-secondary/20 transition-all" type="time"/>
+</div>
+</div>
+<div class="pt-6 text-center">
+<button class="bg-secondary text-on-secondary font-label-sm text-label-sm px-10 py-4 rounded-full border-b-4 border-on-secondary-fixed-variant shadow-[0_10px_30px_rgba(67,100,103,0.3)] hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full md:w-auto inline-flex justify-center items-center gap-2" type="button">
+<span class="material-symbols-outlined">pets</span>
+                            Confirmar Reserva
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center justify-center pt-16 pb-8 px-6 space-y-6 bg-blue-50/80 backdrop-blur-lg rounded-t-[100px] mt-20 border-t-4 border-white dashed border-t-2 border-blue-200/50 shadow-[0_-15px_50px_rgba(186,230,253,0.3)]">
+<div class="text-pink-400 font-black text-2xl drop-shadow-sm font-['Plus_Jakarta_Sans']">
+            CATPUCHINO
+        </div>
+<div class="flex flex-wrap justify-center gap-6 font-['Plus_Jakarta_Sans'] text-sm font-semibold">
+<a class="text-blue-300 hover:text-pink-400 hover:-translate-y-1 transition-all" href="#">Privacidad</a>
+<a class="text-blue-300 hover:text-pink-400 hover:-translate-y-1 transition-all" href="#">Términos</a>
+<a class="text-blue-300 hover:text-pink-400 hover:-translate-y-1 transition-all" href="#">Preguntas Frecuentes</a>
+</div>
+<div class="text-blue-400 dark:text-blue-300 font-['Plus_Jakarta_Sans'] text-sm font-semibold opacity-80">
+            © 2024 CATPUCHINO • Hecho con patitas y amor
+        </div>
+</footer>
+</body></html>
