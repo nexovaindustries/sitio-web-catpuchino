@@ -127,7 +127,55 @@
         .steam-line {
             animation: steam 2s infinite;
         }
+
+        /* Interactive Hearts */
+        .heart-click {
+            position: absolute;
+            pointer-events: none;
+            animation: float 1s ease-out forwards;
+            z-index: 100;
+        }
+
+        /* Yarn Cat Animation */
+        @keyframes roll {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(200px) rotate(360deg); }
+        }
+
+        .yarn-ball {
+            animation: roll 5s linear infinite alternate;
+        }
+
+        .chef-peeking {
+            position: fixed;
+            bottom: -20px;
+            left: -20px;
+            z-index: 100;
+            width: 180px;
+            animation: float 5s ease-in-out infinite;
+            pointer-events: none;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        @media (max-width: 768px) {
+            .chef-peeking {
+                width: 150px;
+                bottom: -20px;
+                left: -20px;
+            }
+        }
     </style>
+    <script>
+        document.addEventListener('click', (e) => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart-click text-2xl';
+            heart.style.left = e.pageX + 'px';
+            heart.style.top = e.pageY + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1000);
+        });
+    </script>
 </head>
 <body class="selection:bg-pink-dark selection:text-white">
     <!-- Background elements -->
@@ -182,23 +230,17 @@
                     </button>
                 </div>
             </div>
+    <!-- Peeking Chef Cat (Fixed to Corner) -->
+    <img src="cat_chef_final_final.png" alt="Chef Gato" class="chef-peeking">
             <div class="relative order-1 md:order-2 flex justify-center">
                 <!-- Main Logo Container -->
                 <div class="relative group">
                     <div class="absolute -inset-4 bg-white/30 rounded-full blur-3xl group-hover:bg-pink-400/20 transition-all duration-700"></div>
-                    <img src="catpuchino_logo_cleaned_1777508771604.png" alt="CatPuchino Logo" class="w-full max-w-[450px] relative z-10 drop-shadow-[0_20px_50px_rgba(255,145,164,0.4)] animate-[bounce-soft_4s_ease-in-out_infinite]">
+                    <img src="logo_perfecto.png" alt="CatPuchino Logo" class="w-full max-w-[450px] relative z-10 drop-shadow-[0_20px_50px_rgba(255,145,164,0.4)] animate-[bounce-soft_4s_ease-in-out_infinite]">
                     
-                    <!-- Floating Cats around logo -->
-                    <div class="absolute -top-10 -right-10 w-32 h-32 float-element" style="animation-delay: -1s;">
-                        <!-- SVG Cat Placeholder for Illustration -->
-                        <svg viewBox="0 0 100 100" class="w-full h-full">
-                            <circle cx="50" cy="50" r="45" fill="#FFF" stroke="#FFD1DC" stroke-width="2"/>
-                            <circle cx="35" cy="45" r="5" fill="#333"/>
-                            <circle cx="65" cy="45" r="5" fill="#333"/>
-                            <path d="M 45 60 Q 50 65 55 60" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M 15 30 L 35 40 L 20 50 Z" fill="#FFD1DC"/>
-                            <path d="M 85 30 L 65 40 L 80 50 Z" fill="#FFD1DC"/>
-                        </svg>
+                    <!-- Floating Cat Cup Decoration -->
+                    <div class="absolute -top-10 -right-10 w-40 h-40">
+                        <img src="cat_cup_new.png" alt="Gatito" class="w-full h-full animate-[float_4s_infinite]">
                     </div>
                 </div>
             </div>
@@ -214,27 +256,7 @@
                     <div class="bg-blue-pastel rounded-[2.5rem] p-10 min-h-[400px] flex flex-col items-center justify-center text-center">
                         <!-- Animated Cat drinking coffee -->
                         <div class="relative mb-6">
-                            <svg viewBox="0 0 200 200" class="w-48 h-48 animate-[breathe_4s_infinite]">
-                                <!-- Body -->
-                                <ellipse cx="100" cy="120" rx="60" ry="50" fill="#FFF" stroke="#FFD1DC" stroke-width="4"/>
-                                <!-- Head -->
-                                <circle cx="100" cy="80" r="50" fill="#FFF" stroke="#FFD1DC" stroke-width="4"/>
-                                <!-- Ears -->
-                                <path d="M 60 50 L 40 10 L 80 40 Z" fill="#FFD1DC"/>
-                                <path d="M 140 50 L 160 10 L 120 40 Z" fill="#FFD1DC"/>
-                                <!-- Eyes -->
-                                <path d="M 75 80 Q 85 70 95 80" fill="none" stroke="#6F4E37" stroke-width="3" stroke-linecap="round"/>
-                                <path d="M 105 80 Q 115 70 125 80" fill="none" stroke="#6F4E37" stroke-width="3" stroke-linecap="round"/>
-                                <!-- Nose & Mouth -->
-                                <circle cx="100" cy="95" r="4" fill="#FF91A4"/>
-                                <path d="M 90 105 Q 100 115 110 105" fill="none" stroke="#6F4E37" stroke-width="3" stroke-linecap="round"/>
-                                <!-- Paws -->
-                                <circle cx="70" cy="150" r="15" fill="#FFF" stroke="#FFD1DC" stroke-width="3"/>
-                                <circle cx="130" cy="150" r="15" fill="#FFF" stroke="#FFD1DC" stroke-width="3"/>
-                                <!-- Cup -->
-                                <path d="M 80 130 L 120 130 L 115 160 L 85 160 Z" fill="#FF91A4" stroke="#6F4E37" stroke-width="2"/>
-                                <path d="M 120 140 Q 135 140 135 150 Q 135 160 120 160" fill="none" stroke="#6F4E37" stroke-width="2"/>
-                            </svg>
+                            <img src="cat_waiter_clean.png" alt="Gatito Camarero" class="w-64 h-auto animate-[breathe_4s_infinite]">
                             <div class="absolute -top-10 left-1/2 -translate-x-1/2 space-y-2">
                                 <div class="steam-line w-2 h-8 bg-white/80 rounded-full blur-[2px]"></div>
                                 <div class="steam-line w-2 h-6 bg-white/60 rounded-full blur-[2px]" style="animation-delay: 0.5s;"></div>
@@ -244,9 +266,7 @@
                         <p class="text-lg">Donde cada taza viene con un ronroneo de regalo.</p>
                     </div>
                 </div>
-                <!-- Peeking cat -->
-                <div class="absolute -bottom-4 right-10 z-20 animate-bounce">
-                    <span class="text-6xl">👀</span>
+                    </div>
                 </div>
             </div>
             <div class="space-y-6">
@@ -364,26 +384,63 @@
         </div>
     </section>
 
-    <!-- Sleeping Cat Section -->
-    <div class="py-10 flex justify-center overflow-hidden">
-        <div class="text-center relative">
-            <svg viewBox="0 0 200 150" class="w-64 h-48 sleeping-cat">
-                <!-- Body -->
-                <ellipse cx="100" cy="90" rx="80" ry="50" fill="#FFF" stroke="#FFD1DC" stroke-width="4"/>
-                <!-- Head -->
-                <circle cx="150" cy="70" r="40" fill="#FFF" stroke="#FFD1DC" stroke-width="4"/>
-                <!-- Ears -->
-                <path d="M 130 40 L 140 10 L 160 40 Z" fill="#FFD1DC"/>
-                <path d="M 170 40 L 180 10 L 190 40 Z" fill="#FFD1DC" transform="rotate(-15, 180, 25)"/>
-                <!-- Eyes (closed) -->
-                <path d="M 135 75 Q 150 85 165 75" fill="none" stroke="#6F4E37" stroke-width="3" stroke-linecap="round"/>
-                <!-- Tail -->
-                <path d="M 30 100 Q 10 80 30 60" fill="none" stroke="#FFD1DC" stroke-width="10" stroke-linecap="round" class="animate-[tail-wag_4s_infinite]"/>
-                <!-- Zzz -->
-                <text x="180" y="40" font-family="Fredoka" font-size="20" fill="#FF91A4" class="animate-pulse">Z</text>
-                <text x="195" y="25" font-family="Fredoka" font-size="25" fill="#FF91A4" class="animate-pulse" style="animation-delay: 0.5s;">Z</text>
-            </svg>
-            <span class="text-2xl font-bold text-pink-600 block mt-4">Zzz... Shhh, ¡un miau duerme aquí!</span>
+    <!-- Galería Section -->
+    <section id="galeria" class="relative bg-blue-50/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black">Mundo <span class="text-blue-400">Miau</span></h2>
+                <p class="text-xl mt-4">Momentos capturados en nuestro refugio de paz.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="glass-card p-3 rounded-[2rem] -rotate-2 hover:rotate-0 transition-all duration-500">
+                    <div class="bg-pink-100 rounded-[1.5rem] h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">📸</div>
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=400" alt="Gatito" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="glass-card p-3 rounded-[2rem] rotate-3 hover:rotate-0 transition-all duration-500">
+                    <div class="bg-blue-100 rounded-[1.5rem] h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">✨</div>
+                        <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=400" alt="Gatito" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="glass-card p-3 rounded-[2rem] -rotate-1 hover:rotate-0 transition-all duration-500">
+                    <div class="bg-yellow-100 rounded-[1.5rem] h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🐾</div>
+                        <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&q=80&w=400" alt="Gatito" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="glass-card p-3 rounded-[2rem] rotate-6 hover:rotate-0 transition-all duration-500">
+                    <div class="bg-pink-100 rounded-[1.5rem] h-64 overflow-hidden relative group">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🥐</div>
+                        <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&q=80&w=400" alt="Gatito" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yarn Decoration (Clean) -->
+            <div class="mt-20 relative h-64 flex justify-center">
+                <div class="yarn-ball relative">
+                    <div class="w-24 h-24 bg-pink-dark rounded-full border-4 border-white shadow-lg"></div>
+                    <div class="absolute top-0 left-0 w-full h-full rounded-full border-2 border-white/50 animate-pulse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capuchino de la Casa (Balanced & Centered) -->
+    <div id="especial" class="py-24 bg-white/40 border-y-8 border-pink-100/50 relative overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col items-center text-center space-y-8">
+            <h2 class="text-3xl font-bold text-pink-600">Capuchino de la Casa</h2>
+            <div class="relative group">
+                <div class="absolute -inset-16 bg-pink-200/30 rounded-full blur-[60px] group-hover:bg-pink-300/40 transition-all duration-700"></div>
+                <img src="cat_cup_new.png" alt="Capuchino de la Casa" class="w-64 md:w-80 h-auto relative z-10 animate-[breathe_4s_infinite]">
+            </div>
         </div>
     </div>
 
@@ -410,14 +467,9 @@
                         </div>
                     </div>
                     
-                    <!-- Walking cat animation placeholder -->
+                    <!-- Peeking Cat Animation -->
                     <div class="pt-10 flex items-center gap-4">
-                        <svg viewBox="0 0 100 60" class="w-32 animate-[float_3s_infinite]">
-                            <ellipse cx="50" cy="30" rx="30" ry="20" fill="#FFF" stroke="#FFD1DC" stroke-width="3"/>
-                            <circle cx="75" cy="20" r="15" fill="#FFF" stroke="#FFD1DC" stroke-width="3"/>
-                            <path d="M 70 15 L 70 5 L 80 15" fill="#FFD1DC"/>
-                            <path d="M 30 30 Q 10 20 20 10" fill="none" stroke="#FFD1DC" stroke-width="5" stroke-linecap="round"/>
-                        </svg>
+                        <img src="cat_waiter_clean.png" alt="Gatito" class="w-32 h-auto animate-[float_3s_infinite]">
                         <span class="text-lg font-bold text-pink-500">¡Ya casi llegas! 🐾</span>
                     </div>
                 </div>
@@ -454,12 +506,56 @@
         </div>
     </section>
 
+    <!-- Ubicación y Contacto -->
+    <section id="contacto" class="relative">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h2 class="text-6xl font-black">Ven a <span class="text-blue-400">Saludarnos</span></h2>
+                <div class="glass-card p-8 rounded-[3rem] space-y-6">
+                    <div class="flex items-start gap-4">
+                        <span class="text-4xl">📍</span>
+                        <div>
+                            <h4 class="text-xl font-bold">Dirección</h4>
+                            <p class="text-lg">Calle de la Dulzura 123, Barrio Pastel, Ciudad Mágica</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-4xl">📞</span>
+                        <div>
+                            <h4 class="text-xl font-bold">Teléfono</h4>
+                            <p class="text-lg">+123 456 789 🐾</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-4xl">💌</span>
+                        <div>
+                            <h4 class="text-xl font-bold">Email</h4>
+                            <p class="text-lg">hola@catpuchino.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <!-- Map Placeholder with Kawaii Style -->
+                <div class="glass-card p-4 rounded-[4rem] border-4 border-blue-200 aspect-square flex flex-col items-center justify-center bg-blue-50">
+                    <span class="text-9xl mb-4">🗺️</span>
+                    <p class="text-2xl font-bold text-blue-500">Mapa Mágico en camino...</p>
+                    <button class="mt-8 btn-kawaii px-8 py-3 rounded-2xl font-bold">Cómo llegar 🐾</button>
+                </div>
+                <!-- Peeking Cat from map -->
+                <div class="absolute -top-10 -right-4">
+                    <img src="cat_cup_new.png" alt="Gatito" class="w-32 h-auto animate-bounce">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-white/60 py-20 mt-20 relative overflow-hidden">
         <div class="absolute -bottom-20 left-0 w-full h-40 bg-pink-300/20 blur-3xl"></div>
         <div class="container mx-auto px-6 text-center space-y-12">
             <div class="flex flex-col items-center gap-4">
-                <img src="catpuchino_logo_cleaned_1777508771604.png" alt="CatPuchino Logo" class="w-40">
+                <img src="logo_perfecto.png" alt="CatPuchino Logo" class="w-40">
                 <p class="text-2xl font-bold italic text-pink-500">"Donde cada caricia es un regalo y cada café una historia."</p>
             </div>
 
@@ -481,25 +577,5 @@
         </div>
     </footer>
 
-    <!-- Cat licking paw at the bottom -->
-    <div class="fixed bottom-0 right-0 z-[60] pointer-events-none p-4">
-        <svg viewBox="0 0 100 100" class="w-32 h-32">
-            <circle cx="50" cy="110" r="50" fill="#FFF" stroke="#FFD1DC" stroke-width="4"/>
-            <circle cx="50" cy="50" r="30" fill="#FFF" stroke="#FFD1DC" stroke-width="4"/>
-            <path d="M 35 30 L 30 10 L 45 25" fill="#FFD1DC"/>
-            <path d="M 65 30 L 70 10 L 55 25" fill="#FFD1DC"/>
-            <circle cx="40" cy="45" r="3" fill="#333"/>
-            <circle cx="60" cy="45" r="3" fill="#333"/>
-            <!-- Licking Paw -->
-            <g class="animate-[bounce-soft_1s_infinite]">
-                <circle cx="50" cy="70" r="10" fill="#FFF" stroke="#FFD1DC" stroke-width="2"/>
-                <path d="M 48 65 Q 50 60 52 65" fill="#FF91A4"/>
-            </g>
-        </svg>
-    </div>
-
 </body>
 </html>
-        </div>
-</footer>
-</body></html>
